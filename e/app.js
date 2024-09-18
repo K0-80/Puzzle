@@ -5,7 +5,7 @@ function animateTiles(i) {
   tl.to(
     `.side-${i} .tile`,
     {
-      duration: 0.1,
+      duration: 0.25,
       scale: 0.4,
       rotate: 90,
       z: "-50vmin",
@@ -23,3 +23,8 @@ function animateTiles(i) {
 }
 
 [...sides].forEach((face, i) => animateTiles(i));
+
+
+
+
+

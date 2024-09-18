@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puzzle Club</title>
+    <link rel="icon" type="image/x-icon" href="ae/67751.png">
     <link rel="stylesheet" href="style.css">
 </head>
+<div id="home"></div>
 <body>
     <nav>
         <ul>
@@ -17,12 +19,25 @@
         </ul>
     </nav>
 
-    <div class="name">
-        <div class="title">Ridge Puzzles</div>
-        <div class="subtitle">Fridays at lunch Room 309</div>
+    <div class="container">
+        <svg viewBox="0 0 1400 300">
+          <symbol id="s-text">
+            <text text-anchor="middle" x="50%" y="65%">Ridge Puzzles </text>
+          </symbol>
+      
+          <g class = "g-ants">
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+          </g>
+        </svg>
       </div>
 
-    <div class="cube-container">
+
+
+      <div class="cube-container">
         <div class="cube">
             <div class="side side-0 front">
                 <div class="tile"></div>
@@ -93,31 +108,37 @@
         </div>
     </div>
 
-    <main>
-        <section id="home">
-            <h2>Welcome to Our Animated Cube Website</h2>
-            <p>Come out to solve logic puzzles, rubiks cubes, and have friendly competitions!</p>
-            <img src="/placeholder.svg?height=300&width=500" alt="Home Image">
-        </section>
 
-        <section id="about">
-            <h2>About Our Project</h2>
-            <p>Learn about the technology and creativity behind our interactive cube design.</p>
-            <img src="/placeholder.svg?height=300&width=500" alt="About Us Image">
-        </section>
 
-        <section id="members">
-            <h2>Our Team Members</h2>
-            <p>Meet the talented individuals who brought this project to life.</p>
-            <img src="/placeholder.svg?height=300&width=500" alt="Team Members Image">
-        </section>
 
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <p>Have questions or want to collaborate? Reach out to us!</p>
-            <img src="/placeholder.svg?height=300&width=500" alt="Contact Image">
+      <main>
+        <section>
+          <p>
+            <span contenteditable=true> Come out to solve logic puzzles, rubiks cubes, and have "friendly" competitions! </span>
+          </p>
         </section>
-    </main>
+      </main>
+      <div></div>
+      <footer>
+        <div class="spacer layer1"></div>
+        <div class="about-section "  id="about">
+          <h2>About us</h2>
+          <p>We are a group of individuals who are passionate about creating a welcoming environment where people can challenge themselves through puzzles and explore the world of logic, ultimately expanding their minds.</p>
+        </div>
+        <div class="spacer layer1  flip" ></div>
+
+        <div class="members-section" id="members">
+          <h2>Members</h2>
+          <p>filler for now yap yap yap filler for now yap yap yap filler for now yap yap yap filler for now yap yap yap filler for now yap yap yap filler for now yap yap yap</p>
+        </div>
+
+        <div class="spacer layer2"></div>
+        <div class="contact-section" id="contact">
+          <h2>Contact us</h2>
+          <p>insta-something  discord-something <br>Site was hand crafted by K0</p>
+        </div>
+
+      </footer>
 
     <script src="app.js"></script>
 </body>
