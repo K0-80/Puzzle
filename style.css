@@ -1,28 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 :root {
-  --cube-size: 50vmin;
+  --cube-size: 45vmin;
   --side-size: calc(var(--cube-size) / 2);
   --perspective: calc(var(--cube-size) * 4);
+  --bg: #293241;
+  --color: hsl(0 0% 100% / 0.1);
+  --underline-width: 1lh;
+  --underline-block-width: 200vmax;
+  --underline-color: hsl(0 0% 50% / 0.15);
+  --underline-color-hover: hsl(180 100% 50% / 1);
+  --underline-transition: 5s;
+  --finish-fill: #98c1d9 ;
+  --accent: #e0fbfc ;
+  --fill: #3d5a80 ;
 }
 
 html, body {
   height: 100%;
-  font-family: 'Sans-serif', Arial, sans-serif;
+  font-family: Arial
 }
 
 body {
   display: grid;
   place-items: center;
-  background-color: whitesmoke;
   overflow-y: auto;  
   margin: 0;
   padding: 0;
+  background: #030321;
+  font-family: Arial;
+  min-height: 100vh;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-/* Updated nav styles */
+
 nav {
   position: fixed;
   top: 0;
@@ -45,50 +59,87 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: #e0fbfc; /* Changed text color to #e0fbfc */
   font-size: 20px;
   padding: 10px 15px;
   border-radius: 25px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;  
 }
 
 nav a:hover {
-  background-color: rgba(109, 105, 105, 0.1);
-  color: #272727;
-  border-color: #6d6969;
+  background-color: #293241; /* Changed hover background color to #ee6c4d */
+  color: #e0fbfc; /* Changed hover text color to #e0fbfc */
+  border-color: #3d5a80; /* Changed hover border color to #3d5a80 */
   transform: scale(1.05);
 }
 
-.title {
-  font-size: 48px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: center; /* center the text horizontally */
+html, body{
+  height: 100%;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
 }
 
-.subtitle {
-  font-size: 36px;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center; /* center the text horizontally */
+
+.container {
+  display: flex;
+/*   border:1px solid red; */
+  height: 10%;
+  align-items: center;
 }
 
-/* add a container to position the title and subtitle */
-.name {
-  position: absolute;
-  top: 10%; /* position 40% from the top of the page */
-  left: 50%; /* center horizontally */
-  transform: translate(-50%, -50%); /* adjust for horizontal and vertical centering */
-  text-align: center; /* center the text horizontally */
+svg {
+    display:  block;
+    font: 12em 'Montserrat';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
 }
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: hsla(  0, 100%, 60%, 0.9);
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: hsla( 50, 100%, 60%, 0.9);
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: hsla(100, 100%, 60%, 0.9);
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: hsla(200, 100%, 60%, 0.9);
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: hsla(250, 100%, 60%, 0.9);
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
 
 
 /* Cube styles */
 .cube-container {
-  margin-top: 260px;
-  margin-bottom: 160px;
+  margin-top: 3%;
+  margin-bottom: 10%;
   position: relative;
   perspective: var(--perspective);
 }
@@ -98,7 +149,7 @@ nav a:hover {
   width: var(--cube-size);
   height: var(--cube-size);
   transform-style: preserve-3d;
-  animation: cube-rotation 7s linear infinite;
+  animation: cube-rotation 12s linear infinite;
 }
 
 .side {
@@ -139,20 +190,6 @@ nav a:hover {
   src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
 }
 
-:root {
-  --bg: hsl(0 0% 2%);
-  --color: hsl(0 0% 100% / 0.1);
-  --underline-width: 1lh;
-  --underline-block-width: 200vmax;
-  --underline-color: hsl(0 0% 50% / 0.15);
-  --underline-color-hover: hsl(180 100% 50% / 1);
-  --underline-transition: 5s;
-  --finish-fill: hsl(0, 6%, 62%);
-  --accent: hsl(0, 2%, 57%);
-  --fill: hsl(0 0% 50%);
-}
-
-
 header, footer {
   height: 100vh;
   color: var(--finish-fill);
@@ -167,20 +204,6 @@ h1, h2 {
   background-clip: text;
   color: transparent;
 /*  text-transform: uppercase;*/
-}
-
-.controls {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 100px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: hsl(0 0% 90%);
-  color: hsl(0 0% 10%);
 }
 
 p {
@@ -213,16 +236,6 @@ p > span {
   color: var(--finish-fill);
 }
 
-/*p > span {
-  background-clip: unset;
-  color: transparent;
-  background-position-x: -200vmax, -200vmax, 0;
-  animation: fill-up 4s infinite linear;
-}
-
-@keyframes fill-up {
-  to { background-position-x: 0, 0, 0; }
-}*/
 
 main {
   height: 200vh;
@@ -235,6 +248,7 @@ section {
 	width: 100vw;
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 
@@ -267,6 +281,62 @@ section {
   }
 }
 
+.spacer{
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.layer1 {
+  background-image: url('e/layered-waves-haikei.svg');
+}
+.layer2{
+  background-image: url('e/layered-peaks-haikei.svg');
+}
+.flip{
+  transform: rotate(180deg);
+  margin-top: -10px;
+}
 
+footer {
+  /* default background color for the entire footer */
+  background-color: #3d5a80; /* light gray */
+  flex: 1;
 
+}
+
+footer h2 {
+  /* styles for the h2 elements inside footer */
+  font-size: 100px; /* make the headings big */
+  line-height: 1.2; /* reduce the line height */
+  margin-bottom: -300px; /* add some margin to separate the heading from the paragraph */
+  text-align: center;
+  color: #293241;
+  margin-top: -20px; /* adjust the margin to compensate for the added space */
+}
+
+footer p {
+  /* styles for the p elements inside footer */
+  font-size: 50px; /* make the paragraphs smaller */
+  text-align: center;
+  color: #98c1d9;
+  padding-bottom: 20px;
+  width: auto;
+}
+.about-section {
+  background-color: #3d5a80; /* light orange */
+  padding: 20px; /* add some padding to make the background visible */
+}
+.contact-section {
+  background-color: #293241; /* light orange */
+  padding: 20px; /* add some padding to make the background visible */
+  color: #98c1d9 ;
+  margin-top: -10px;
+  width: 2050px;
+  
+}
+.contact-section h2 {
+  color: #e0fbfc ;
+}
 
