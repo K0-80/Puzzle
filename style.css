@@ -1,0 +1,272 @@
+:root {
+  --cube-size: 50vmin;
+  --side-size: calc(var(--cube-size) / 2);
+  --perspective: calc(var(--cube-size) * 4);
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Sans-serif', Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: whitesmoke;
+  overflow-y: auto;  
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Updated nav styles */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(109, 105, 105, 0.1);
+  color: #272727;
+  border-color: #6d6969;
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center; /* center the text horizontally */
+}
+
+.subtitle {
+  font-size: 36px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center; /* center the text horizontally */
+}
+
+/* add a container to position the title and subtitle */
+.name {
+  position: absolute;
+  top: 10%; /* position 40% from the top of the page */
+  left: 50%; /* center horizontally */
+  transform: translate(-50%, -50%); /* adjust for horizontal and vertical centering */
+  text-align: center; /* center the text horizontally */
+}
+
+
+/* Cube styles */
+.cube-container {
+  margin-top: 260px;
+  margin-bottom: 160px;
+  position: relative;
+  perspective: var(--perspective);
+}
+
+.cube {
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  animation: cube-rotation 7s linear infinite;
+}
+
+.side {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: var(--perspective);
+  overflow: hidden;
+}
+
+.front  { transform: rotateY(  0deg) translateZ(var(--side-size)); }
+.back   { transform: rotateY(180deg) translateZ(var(--side-size)); }
+.right  { transform: rotateY( 90deg) translateZ(var(--side-size)); }
+.left   { transform: rotateY(-90deg) translateZ(var(--side-size)); }
+.top    { transform: rotateX( 90deg) translateZ(var(--side-size)); }
+.bottom { transform: rotateX(-90deg) translateZ(var(--side-size)); }
+
+.front .tile { background: hsla(  0, 100%, 60%, 0.9); }
+.back .tile { background: hsla( 50, 100%, 60%, 0.9); }
+.right .tile { background: hsla(100, 100%, 60%, 0.9); }
+.left .tile { background: hsla(150, 100%, 60%, 0.9); }
+.top .tile { background: hsla(200, 100%, 60%, 0.9); }
+.bottom .tile { background: hsla(250, 100%, 60%, 0.9); }
+
+@keyframes cube-rotation {
+  to { transform: rotateX(360deg) rotateY(-360deg) }
+}
+
+
+
+
+
+@font-face {
+  font-family: "Geist Sans";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+:root {
+  --bg: hsl(0 0% 2%);
+  --color: hsl(0 0% 100% / 0.1);
+  --underline-width: 1lh;
+  --underline-block-width: 200vmax;
+  --underline-color: hsl(0 0% 50% / 0.15);
+  --underline-color-hover: hsl(180 100% 50% / 1);
+  --underline-transition: 5s;
+  --finish-fill: hsl(0, 6%, 62%);
+  --accent: hsl(0, 2%, 57%);
+  --fill: hsl(0 0% 50%);
+}
+
+
+header, footer {
+  height: 100vh;
+  color: var(--finish-fill);
+  display: grid;
+  place-items: center;
+  font-size: clamp(2rem, 4vw + 1rem, 12rem);
+}
+
+h1, h2 {
+  font-weight: 120;
+  background: linear-gradient(var(--finish-fill), var(--fill));
+  background-clip: text;
+  color: transparent;
+/*  text-transform: uppercase;*/
+}
+
+.controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: hsl(0 0% 90%);
+  color: hsl(0 0% 10%);
+}
+
+p {
+  resize: both;
+  max-width: 70vw;
+  overflow: hidden;
+  padding: 10ch;
+	margin: 0;
+}
+
+p > span {
+	outline-color: transparent;
+	outline-offset: 1ch;
+	font-size: clamp(3rem, 4vw + 1rem, 10rem);
+  color: var(--color);
+  text-decoration: none;
+  background-image:
+		/* First one is the highlight */
+		linear-gradient(90deg, transparent calc(100% - 8ch), var(--accent) calc(100%  - 8ch)),
+  	linear-gradient(90deg, var(--fill), var(--fill)),
+    linear-gradient(90deg, var(--underline-color), var(--underline-color));
+  background-size:
+  	var(--underline-block-width) var(--underline-width),
+  	var(--underline-block-width) var(--underline-width),
+    100% var(--underline-width);
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 100%;
+  background-clip: text;
+  color: var(--finish-fill);
+}
+
+/*p > span {
+  background-clip: unset;
+  color: transparent;
+  background-position-x: -200vmax, -200vmax, 0;
+  animation: fill-up 4s infinite linear;
+}
+
+@keyframes fill-up {
+  to { background-position-x: 0, 0, 0; }
+}*/
+
+main {
+  height: 200vh;
+}
+
+section {
+  position: sticky;
+  top: 0;
+	height: 100vh;
+	width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main {
+      view-timeline-name: --section;
+    }
+    
+    p > span {
+      background-position-x:
+        calc(var(--underline-block-width) * -1),
+        calc(var(--underline-block-width) * -1),
+        0;
+      color: transparent;
+      animation-name: fill-up, color-in;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    	animation-timeline: --section;
+    	animation-range: entry 100% cover 50%, cover 50% exit 0%;
+    }
+
+    @keyframes fill-up {
+    	to { background-position-x: 0, 0, 0; }
+    }
+
+    @keyframes color-in {
+    	to { color: var(--finish-fill); }
+    }
+  }
+}
+
+
+
+

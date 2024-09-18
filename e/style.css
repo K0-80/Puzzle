@@ -1,0 +1,136 @@
+:root {
+  --cube-size: 50vmin;
+  --side-size: calc(var(--cube-size) / 2);
+  --perspective: calc(var(--cube-size) * 4);
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Sans-serif', Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: whitesmoke;
+  overflow-y: auto;  
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Updated nav styles */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(109, 105, 105, 0.1);
+  color: #272727;
+  border-color: #6d6969;
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center; /* center the text horizontally */
+}
+
+.subtitle {
+  font-size: 36px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center; /* center the text horizontally */
+}
+
+/* add a container to position the title and subtitle */
+.name {
+  position: absolute;
+  top: 10%; /* position 40% from the top of the page */
+  left: 50%; /* center horizontally */
+  transform: translate(-50%, -50%); /* adjust for horizontal and vertical centering */
+  text-align: center; /* center the text horizontally */
+}
+
+
+/* Cube styles */
+.cube-container {
+  margin-top: 260px;
+  margin-bottom: 160px;
+  position: relative;
+  perspective: var(--perspective);
+}
+
+.cube {
+  position: relative;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  animation: cube-rotation 7s linear infinite;
+}
+
+.side {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: var(--perspective);
+  overflow: hidden;
+}
+
+.front  { transform: rotateY(  0deg) translateZ(var(--side-size)); }
+.back   { transform: rotateY(180deg) translateZ(var(--side-size)); }
+.right  { transform: rotateY( 90deg) translateZ(var(--side-size)); }
+.left   { transform: rotateY(-90deg) translateZ(var(--side-size)); }
+.top    { transform: rotateX( 90deg) translateZ(var(--side-size)); }
+.bottom { transform: rotateX(-90deg) translateZ(var(--side-size)); }
+
+.front .tile { background: hsla(  0, 100%, 60%, 0.9); }
+.back .tile { background: hsla( 50, 100%, 60%, 0.9); }
+.right .tile { background: hsla(100, 100%, 60%, 0.9); }
+.left .tile { background: hsla(150, 100%, 60%, 0.9); }
+.top .tile { background: hsla(200, 100%, 60%, 0.9); }
+.bottom .tile { background: hsla(250, 100%, 60%, 0.9); }
+
+@keyframes cube-rotation {
+  to { transform: rotateX(360deg) rotateY(-360deg) }
+}
+
+
+
+
+
