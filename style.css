@@ -108,7 +108,7 @@ svg {
 
 .text-copy:nth-child(1){
 	stroke: hsla(  0, 100%, 60%, 0.9);
-	animation-delay: -1;
+	animation-delay: -1s;
 }
 
 .text-copy:nth-child(2){
