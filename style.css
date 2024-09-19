@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 :root {
-  --cube-size: 45vmin;
+  --cube-size: 40vmin;
   --side-size: calc(var(--cube-size) / 2);
   --perspective: calc(var(--cube-size) * 4);
   --bg: #293241;
@@ -322,7 +322,7 @@ footer h2 {
 
 footer p {
   /* styles for the p elements inside footer */
-  font-size: 50px; /* make the paragraphs smaller */
+  font-size: 45px; /* make the paragraphs smaller */
   text-align: center;
   color: #98c1d9;
   padding-bottom: 20px;
