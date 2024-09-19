@@ -7,13 +7,13 @@ function animateTiles(i) {
     {
       duration: 0.25,
       scale: 0.4,
-      rotate: 90,
+      rotate: 180,
       z: "-50vmin",
       yoyo: true,
       repeat: 1,
       repeatDelay: 0.5,
       stagger: {
-        amount: 0.6,
+        amount: 1.5,
         grid: "auto",
         from: "edges"
       }

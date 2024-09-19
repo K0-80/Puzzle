@@ -7,7 +7,7 @@
   --bg: #293241;
   --color: hsl(0 0% 100% / 0.1);
   --underline-width: 1lh;
-  --underline-block-width: 200vmax;
+  --underline-block-width: 300vmax;
   --underline-color: hsl(0 0% 50% / 0.15);
   --underline-color-hover: hsl(180 100% 50% / 1);
   --underline-transition: 5s;
